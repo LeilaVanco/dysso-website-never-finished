@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+*{
+    font-family: "Montserrat";
+}
+
+body{
+    margin: 0 auto;
+    background-color: #25252a;
+    
+}
+
+
+
+
+
+/* page */
+
+header.header{
+    display: flex;
+    align-items: center;
+}
+
+header.header img{
+    width: 7%;
+}
+
+section.top-page{
+    background: url("../images/accueil.jpeg");
+    background-size: cover;
+    height: 96vh;
+    padding: 1%;
+}
+
+
+
+
+
+
+/* menu de naviguation */
+
+nav.nav{
+    display: flex;
+    justify-content: space-between;
+    font-size: 125%;
+    list-style: none;
+    width: 100%;
+}
+nav.nav li{
+    color: #0a28ac;
+    font-weight: 600;
+    
+}
+
+.big2-title{
+    color: #3f0303;
+    font-size: 187.5%;
+    width: 12%;
+}
+.cmd{
+    text-decoration: none;
+    color: #0a28ac;
+}
+
+
+
+
+
+
+
+
+
+/* milieu de page (landing page)*/
+
+
+
+.big-title{
+    align-items: center;
+    color: #ffffff;
+    font-size: 80px;
+    font-family: "Quicksand", sans-serif;
+    text-shadow: 
+        -1px -1px 0 #3f0303,  
+        1px -1px 0 #3f0303,
+        -1px 1px 0 #3f0303,
+        1px 1px 0 #3f0303;
+}
+
+.arrow-icon{
+    font-size: 30px;
+    color: #ffffff;
+    margin-left: 1%;
+}
+
+
+
+.scroll-down{
+    color: #4b083a;
+    text-decoration: none;
+    font-size: 60px;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+    margin-top: 25%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* avis */
+
+.avis-item{
+    display: flex;
+    align-items: center;
+}
+
+.avis{
+    display: flex;
+    justify-content: center;
+}
+
+.avis::after{
+    content: "";
+    background-color: #25252a;
+    filter: blur(5px);
+    position: absolute;
+    width: 100%;
+    height: 0.5%;
+}
+.comment-icon{
+    font-size: 65px;
+    color: #b0cae4;
+    margin-right: 15px; 
+}
+.avis-taille{
+    font-size: 30px;
+    color: white;
+    position: relative;
+}
+
+.avis-taille::before{
+    content: "";
+    position: absolute;
+    background-color: aqua;
+    width: 40px;
+    height: 4px;
+    bottom: 0;
+
+}
+
+/* Styles pour les écrans plus petits, généralement des téléphones */
+@media only screen and (max-width: 600px) {
+    
+}
+
+/* Styles pour les tablettes */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Mettez ici les styles spécifiques aux tablettes */
+}
+
+/* Styles pour les ordinateurs de bureau */
+@media only screen and (min-width: 1025px) {
+    /* Mettez ici les styles spécifiques aux ordinateurs de bureau */
+}

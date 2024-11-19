@@ -1,0 +1,50 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Style de base pour le bouton du menu déroulant */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style de base pour le conteneur du menu déroulant */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style de base pour le contenu du menu déroulant (caché par défaut) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    overflow: hidden; /* Cela masquera le contenu qui dépasse */
+}
+
+/* Style pour les liens dans le menu déroulant */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* Animation de transition pour le déplacement vertical */
+}
+
+/* Changement de couleur au survol */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Afficher le contenu du menu déroulant avec une animation slide lorsqu'il est survolé */
+.dropdown:hover .dropdown-content {
+    display: block;
+    transform: translateY(0); /* Animation de slide vers le bas */
+}

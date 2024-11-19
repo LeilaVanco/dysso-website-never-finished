@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/accueil.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"></script>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          text-align: center;
+        }
+        #survey-container {
+          max-width: 600px;
+          margin: 20px auto;
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+          color: #333;
+        }
+        form {
+          text-align: left;
+        }
+        label {
+          display: block;
+          margin-bottom: 10px;
+        }
+        input[type="radio"] {
+          margin-right: 5px;
+        }
+        button {
+          padding: 10px 20px;
+          background-color: #4caf50;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        #results-container {
+          margin-top: 20px;
+          display: none;
+        }
+      </style>
+</head>
+
+<body>
+    <section class="top-page">
+        <header class="header">
+
+            <img src="images/discordlogo.png" alt="Logo de Discord">
+            <h2 class="big2-title">Dysso ☾ Support</h2>
+            <nav class="nav">
+                <li><a class="cmd" href="/accueil.html">Accueil</a></li>
+                <li><a class="cmd" href="https://dysso.webador.fr/commandes-en-details">Commandes en détails</a></li>
+                <li><a class = "cmd" href="/le-discord.html">Le Discord</a></li>
+                <li><a class = "cmd" href="https://dysso.webador.fr/conditions-d-utilisation">Conditions d'utilisation</a></li>
+                <li><a class = "cmd" href="https://dysso.webador.fr/politique-de-confidentialite">Politique de confidentialité</a></li>
+                <li><a class = "cmd" href="https://dysso.webador.fr/a-propos">À propos</a></li>
+                <li><a class = "cmd" href="https://dysso.webador.fr/remerciements">Remerciements</a></li>
+            </nav>
+            
+        </header>
+        <h1 class="big-title">Discord bot<a href="https://discord.com/oauth2/authorize?client_id=996384164209238018&permissions=1651885599958&scope=bot" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square fa-beat arrow-icon"></i></a></h1>
+        <button class="scroll-down" href="" onclick="scrollToBottom()"><i class="fa-solid fa-angle-down fa-bounce"></i></button>
+
+    </section>
+
+    <section class="avis">
+        <div class="avis-item">
+            <i class="fa-solid fa-comment-dots comment-icon"></i>
+            <h3 class="avis-taille">Votre avis compte ! Que pensez-vous de Dysso ☾ ?</h3>
+        </div>
+    </section>
+
+    <div id="survey-container">
+        <h2>Votez !</h2>
+        <form id="survey-form">
+          <label for="question1">Question 1: Quelle est votre couleur préférée?</label>
+          <input type="radio" name="question1" value="bleu"> Je l'adore
+          <input type="radio" name="question1" value="rouge"> Je l'aime bien
+          <input type="radio" name="question1" value="vert"> Je suis neutre
+          <input type="radio" name="question1" value="autre"> Je ne l'aime pas<br>
+    
+          <label for="question2">Question 2: Quel est votre animal préféré?</label>
+          <input type="radio" name="question2" value="chien"> Chien
+          <input type="radio" name="question2" value="chat"> Chat
+          <input type="radio" name="question2" value="oiseau"> Oiseau
+          <input type="radio" name="question2" value="autre"> Autre<br>
+    
+          <button type="button" onclick="submitSurvey()">Soumettre</button>
+        </form>
+    
+        <div id="results-container">
+          <h2>Résultats du Sondage</h2>
+          <p id="result-question1"></p>
+          <p id="result-question2"></p>
+        </div>
+    </div>
+
+    <div id="basDePage"></div>
+    <script>
+        function scrollToBottom() {
+            var basDePage = document.getElementById('basDePage');
+
+            basDePage.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Initialise les résultats
+        var results = {
+            question1: { bleu: 0, rouge: 0, vert: 0, autre: 0 },
+            question2: { chien: 0, chat: 0, oiseau: 0, autre: 0 }
+    };
+
+        function submitSurvey() {
+      // Récupère les réponses sélectionnées
+            var answers = {
+            question1: document.querySelector('input[name="question1"]:checked').value,
+            question2: document.querySelector('input[name="question2"]:checked').value
+      };
+
+      // Incrémente les résultats
+        results.question1[answers.question1]++;
+        results.question2[answers.question2]++;
+
+      // Afficher les résultats sur la page
+        document.getElementById('result-question1').innerText = 'Réponses Question 1:\n' +
+            'Bleu: ' + (results.question1.bleu / getTotalVotes(results.question1) * 100).toFixed(2) + '%\n' +
+            'Rouge: ' + (results.question1.rouge / getTotalVotes(results.question1) * 100).toFixed(2) + '%\n' +
+            'Vert: ' + (results.question1.vert / getTotalVotes(results.question1) * 100).toFixed(2) + '%\n' +
+            'Autre: ' + (results.question1.autre / getTotalVotes(results.question1) * 100).toFixed(2) + '%';
+
+        document.getElementById('result-question2').innerText = 'Réponses Question 2:\n' +
+            'Chien: ' + (results.question2.chien / getTotalVotes(results.question2) * 100).toFixed(2) + '%\n' +
+            'Chat: ' + (results.question2.chat / getTotalVotes(results.question2) * 100).toFixed(2) + '%\n' +
+            'Oiseau: ' + (results.question2.oiseau / getTotalVotes(results.question2) * 100).toFixed(2) + '%\n' +
+            'Autre: ' + (results.question2.autre / getTotalVotes(results.question2) * 100).toFixed(2) + '%';
+
+      // Afficher la section des résultats
+        document.getElementById('results-container').style.display = 'block';
+    }
+
+        function getTotalVotes(questionResults) {
+      // Calcule le total des votes pour une question
+            return Object.values(questionResults).reduce((total, count) => total + count, 0);
+    }
+    </script>
+
+</body>
+
+</html>
